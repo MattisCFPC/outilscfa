@@ -1,32 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { db } from "../firebase"; // Assurez-vous que la base de données est correctement exportée
+import {
+  collection,
+  addDoc,
+  onSnapshot,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 import "./ToDoWidget.css";
 
 function ToDoWidget() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
 
-  const addTask = () => {
+  // Référence à la collection Firestore
+  const tasksCollectionRef = collection(db, "tasks");
+
+  // Charger les tâches au démarrage en temps réel
+  useEffect(() => {
+    const unsubscribe = onSnapshot(tasksCollectionRef, (snapshot) => {
+      const tasksData = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setTasks(tasksData);
+    });
+
+    // Nettoyage du listener Firestore
+    return () => unsubscribe();
+  }, []);
+
+  // Ajouter une tâche dans Firestore
+  const addTask = async () => {
     if (newTask.trim() !== "") {
-      setTasks([...tasks, { text: newTask, completed: false }]);
-      setNewTask("");
+      await addDoc(tasksCollectionRef, { text: newTask, completed: false });
+      setNewTask(""); // Réinitialiser le champ
     }
   };
 
-  const toggleTaskCompletion = (index) => {
-    const updatedTasks = tasks.map((task, i) =>
-      i === index ? { ...task, completed: !task.completed } : task
-    );
-    setTasks(updatedTasks);
-  };
-
-  const deleteTask = (index) => {
-    const updatedTasks = tasks.filter((_, i) => i !== index);
-    setTasks(updatedTasks);
+  // Supprimer une tâche dans Firestore
+  const deleteTask = async (id) => {
+    await deleteDoc(doc(db, "tasks", id));
   };
 
   return (
     <div className="todo-widget">
-      <h2 className="todo-title"></h2>
+      <h2 className="todo-title">Liste des Tâches</h2>
       <div className="todo-input">
         <input
           type="text"
@@ -37,12 +56,10 @@ function ToDoWidget() {
         <button onClick={addTask}>Ajouter</button>
       </div>
       <ul className="todo-list">
-        {tasks.map((task, index) => (
-          <li key={index} className={`todo-item ${task.completed ? "completed" : ""}`}>
-            <span onClick={() => toggleTaskCompletion(index)}>
-              {task.text}
-            </span>
-            <button onClick={() => deleteTask(index)}>Supprimer</button>
+        {tasks.map((task) => (
+          <li key={task.id} className="todo-item">
+            <span>{task.text}</span>
+            <button onClick={() => deleteTask(task.id)}>Supprimer</button>
           </li>
         ))}
       </ul>
