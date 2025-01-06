@@ -1,0 +1,39 @@
+.procedure-widget {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: left;
+  }
+  
+  .procedure-title {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #2c3e50;
+
+  }
+  
+  .procedure-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .procedure-item {
+    margin-bottom: 10px;
+  }
+  
+  .procedure-link {
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #2BB673;
+    transition: color 0.3s ease;
+  }
+  
+  .procedure-link:hover {
+    color: #249960;
+    text-decoration: underline;
+  }
+  

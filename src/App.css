@@ -1,0 +1,169 @@
+/* Général */
+body, html {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f3f4f6; /* Couleur de fond moderne */
+  color: #333; /* Texte sombre pour un bon contraste */
+}
+
+.app-container {
+  max-width: 1200px; /* Limite la largeur pour un design plus centré */
+  margin: 0 auto; /* Centre la mise en page */
+  padding: 20px;
+}
+
+/* En-tête */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo {
+  height: 50px; /* Ajuste la hauteur selon ton design */
+  width: auto; /* Maintient le ratio */
+  margin-right: 10px; /* Espace entre le logo et le texte */
+}
+
+/* Section titre */
+.app-section-title {
+  margin: 80px 0 50px 20px; /* Ajuste les espacements */
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.8em;
+  color: #2c3e50; /* Couleur sombre élégante */
+  border-left: 5px solid #2BB673; /* Barre décorative à gauche */
+  padding-left: 10px; /* Espace après la barre */
+}
+
+/* Grille des applications */
+.app-grid {
+  display: flex;
+  justify-content: center; /* Centre les boutons */
+  gap: 60px; /* Ajuste l'espace entre les boutons */
+  margin-top: 20px;
+  
+}
+
+/* Cartes d'application */
+.app-card {
+  background: linear-gradient(145deg, #ffffff, #e6e6e6); /* Effet de lumière */
+  border: 1px solid #ddd; /* Bordure fine et élégante */
+  width: 300px;
+  height: 150px;
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.7); /* Ombre douce */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #4a4a4a; /* Texte sombre */
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out; /* Animation au survol */
+}
+
+.app-card:hover {
+  transform: translateY(-5px); /* Léger déplacement vers le haut */
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2), -5px -5px 20px rgba(255, 255, 255, 0.9); /* Accentue l'ombre */
+  background: linear-gradient(145deg, #f9f9f9, #dcdcdc); /* Variation au survol */
+}
+
+/* Contenu des cartes */
+.card-content {
+  text-align: center; /* Centre le contenu dans la carte */
+}
+
+.card-content h2 {
+  margin-top: 10px;
+  font-size: 1.2em; /* Taille de texte légèrement réduite */
+  text-transform: uppercase;
+  color: #2c3e50; /* Couleur principale */
+}
+
+/* Icônes */
+.app-icon {
+  width: 60px; /* Taille plus grande pour les icônes */
+  height: auto;
+  margin-bottom: 10px; /* Espace sous l'icône */
+}
+
+/* Texte réduit */
+.small-text h2 {
+  font-size: 15px;
+}
+
+/* Animations générales */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Boutons et widgets interactifs */
+.app-card:hover {
+  transform: scale(1.05); /* Grossissement léger */
+}
+
+/* Petits ajustements responsives */
+@media (max-width: 768px) {
+  .app-grid {
+    gap: 20px; /* Réduit l'espace entre les boutons */
+  }
+  .app-card {
+    width: 100%; /* Cartes prennent toute la largeur */
+  }
+  .app-section-title {
+    font-size: 1.5em; /* Réduit légèrement la taille du titre */
+  }
+  .calendar-widget, .stats-widget {
+    max-width: 100%; /* Ajuste les widgets pour mobile */
+  }
+}
+.todo-section-title {
+  margin: 60px 0;
+  font-size: 1.8em;
+  color: #2c3e50;
+  border-left: 5px solid #2BB673; /* Barre décorative comme pour le titre principal */
+  padding-left: 10px; /* Espace après la barre */
+}
+
+/* Conteneur des widgets */
+.widgets-container {
+  display: flex; /* Active Flexbox pour aligner les éléments horizontalement */
+  justify-content: flex-start; /* Aligne les blocs à gauche */
+  align-items: flex-start; /* Alignement vertical en haut */
+  gap: 100px; /* Espace entre les deux widgets */
+  margin: 40px 20px; /* Espacement autour du conteneur */
+}
+
+/* Section To-Do List */
+.todo-section {
+  flex: 1; /* Prend toute la largeur restante */
+  max-width: 500px; /* Largeur maximale pour un alignement propre */
+}
+
+/* Section Fiches de Procédures */
+.procedure-section {
+  flex: 1; /* Prend toute la largeur restante */
+  max-width: 500px; /* Largeur maximale */
+}
+
+/* Titre des widgets */
+.widget-title {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  border-left: 5px solid #2BB673; /* Barre décorative */
+  padding-left: 10px; /* Espace après la barre */
+}
