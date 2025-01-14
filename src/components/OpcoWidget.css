@@ -1,0 +1,63 @@
+.opco-widget {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: left;
+  }
+  
+  .opco-title {
+    font-size: 1.8em;
+    margin-bottom: 40px;
+    color: #2c3e50;
+    padding-left: 10px;
+  }
+  
+  .opco-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .opco-item {
+    margin-bottom: 10px;
+  }
+  
+  .opco-link {
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #2BB673;
+    transition: color 0.3s ease;
+  }
+  
+  .opco-link:hover {
+    color: #249960;
+    text-decoration: underline;
+  }
+  
+  /* Conteneur du bouton accueil */
+  .home-button-container {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  /* Bouton accueil */
+  .home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2BB673;
+    color: white;
+    font-size: 1em;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .home-button:hover {
+    background-color: #249960;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  

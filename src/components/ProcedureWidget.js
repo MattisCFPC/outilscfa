@@ -15,7 +15,7 @@ function ProcedureWidget() {
 
   return (
     <div className="procedure-widget">
-      <h2 className="procedure-title"></h2>
+      <h2 className="procedure-title">Fiches de procédures</h2>
       <ul className="procedure-list">
         {procedures.map((procedure, index) => (
           <li key={index} className="procedure-item">

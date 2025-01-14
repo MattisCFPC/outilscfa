@@ -1,10 +1,13 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Import de BrowserRouter
 import AppHeader from "./components/AppHeader";
 import AppCard from "./components/AppCard";
 import ToDoWidget from "./components/ToDoWidget";
 import ProcedureWidget from "./components/ProcedureWidget";
+import UsefulLinksWidget from "./components/UsefulLinksWidget";
+import OpcoWidget from "./components/OpcoWidget";
 import "./App.css";
-import mondayLogo from "./assets/monday.png"; // Assure-toi que ce logo existe
+import mondayLogo from "./assets/monday.png";
 
 function App() {
   const apps = [
@@ -12,7 +15,7 @@ function App() {
       title: "Monday",
       image: mondayLogo,
       link: "https://cfpc-georges-hoareau.monday.com/boards/1667242607",
-      hideTitle: true, // Cache le titre pour ce bouton
+      hideTitle: true,
     },
     {
       title: "EMARGEMENT RCI",
@@ -25,45 +28,60 @@ function App() {
       link: "https://emargement.vercel.app/",
     },
     {
-      title: "SITE CFA", // Nouveau bouton
+      title: "SITE CFA",
       image: null,
       link: "https://cfa.georgeshoareau.re",
+    },
+    {
+      title: "Opco",
+      image: null,
+      link: "/opco", // Redirige vers la page Opco
     },
   ];
 
   return (
-    <div className="app-container">
-      <AppHeader />
+    <Router>
+      <div className="app-container">
+        <AppHeader />
 
-      {/* Section des applications */}
-      <h2 className="app-section-title">Toutes les applications</h2>
-      <div className="app-grid">
-        {apps.map((app, index) => (
-          <AppCard
-            key={index}
-            title={app.title}
-            image={app.image}
-            link={app.link}
-            hideTitle={app.hideTitle}
+        <Routes>
+          {/* Page principale */}
+          <Route
+            path="/"
+            element={
+              <>
+                <h2 className="app-section-title">Toutes les applications</h2>
+                <div className="app-grid">
+                  {apps.map((app, index) => (
+                    <AppCard
+                      key={index}
+                      title={app.title}
+                      image={app.image}
+                      link={app.link}
+                      hideTitle={app.hideTitle}
+                    />
+                  ))}
+                </div>
+                <div className="widgets-container">
+                  <div className="todo-section">
+                    <ToDoWidget />
+                  </div>
+                  <div className="procedure-section">
+                    <ProcedureWidget />
+                  </div>
+                  <div className="links-section">
+                    <UsefulLinksWidget />
+                  </div>
+                </div>
+              </>
+            }
           />
-        ))}
-      </div>
 
-      {/* Conteneur pour les widgets alignés */}
-      <div className="widgets-container">
-        {/* Section Liste des Tâches */}
-        <div className="todo-section">
-          <h2 className="widget-title">Liste des Tâches</h2>
-          <ToDoWidget />
-        </div>
-
-        {/* Section Fiches de Procédures */}
-        <div className="procedure-section">
-          <h2 className="widget-title">Fiches de Procédures</h2>
-          <ProcedureWidget />
-        </div>
+          {/* Page Opco */}
+          <Route path="/opco" element={<OpcoWidget />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 

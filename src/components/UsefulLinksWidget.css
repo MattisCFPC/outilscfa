@@ -1,4 +1,4 @@
-.procedure-widget {
+.useful-links-widget {
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -8,31 +8,31 @@
     text-align: left;
   }
   
-  .procedure-title {
+  .links-title {
     font-size: 1.5em;
     margin-bottom: 20px;
     color: #2c3e50;
-
+    padding-left: 75px;
   }
   
-  .procedure-list {
+  .links-list {
     list-style: none;
     padding: 0;
     margin: 0;
   }
   
-  .procedure-item {
+  .links-item {
     margin-bottom: 10px;
   }
   
-  .procedure-link {
+  .links-link {
     text-decoration: none;
     font-size: 1.2em;
     color: #2BB673;
     transition: color 0.3s ease;
   }
   
-  .procedure-link:hover {
+  .links-link:hover {
     color: #249960;
     text-decoration: underline;
   }
